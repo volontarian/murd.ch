@@ -32,6 +32,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
+    put File.read("config/secrets.yml"), "#{shared_path}/config/secrets.yml"
   end
   
   after "deploy:setup", "deploy:setup_config"

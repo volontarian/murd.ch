@@ -1,3 +1,4 @@
+.DS_Store
 *.rbc
 capybara-*.html
 .rspec
@@ -15,6 +16,7 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 config/database.yml
 config/secrets.yml
+config/sites-available/
 
 ## Environment normalisation:
 /.bundle
