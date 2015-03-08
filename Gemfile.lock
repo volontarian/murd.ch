@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/home-page/home_page.git
-  revision: fa29cc318d474aba07d484d315e93ef036aa7d86
+  revision: 1b52700887d09f8fe45a8f177540cec5a6c2f4d3
   specs:
     home_page (0.0.3)
       activerecord-deprecated_finders (~> 1.0.3)
