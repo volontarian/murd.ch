@@ -1,5 +1,6 @@
 .DS_Store
 .project
+*.project
 *.rbc
 capybara-*.html
 .rspec
