@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/home-page/home_page.git
-  revision: e7d2f816fd7e029b8c255371703619fefcf2e870
+  revision: fa29cc318d474aba07d484d315e93ef036aa7d86
   specs:
     home_page (0.0.3)
       activerecord-deprecated_finders (~> 1.0.3)
@@ -21,6 +21,7 @@ GIT
       turbolinks (~> 2.5.3)
       twitter-bootswatch-rails (~> 3.3.2.0)
       twitter-bootswatch-rails-fontawesome (~> 4.3.0.0)
+      uglifier (~> 2.7.1)
       will_paginate (~> 3.0.7)
       will_paginate-bootstrap (~> 1.0.1)
 
@@ -279,6 +280,9 @@ GEM
       twitter-bootswatch-rails (~> 3.3, >= 3.3.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.7.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
