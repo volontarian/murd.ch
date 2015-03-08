@@ -34,13 +34,16 @@ namespace :deploy do
     put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
     put File.read("config/secrets.yml"), "#{shared_path}/config/secrets.yml"
     put File.read("config/initializers/devise.rb"), "#{shared_path}/config/initializers/devise.rb"
+    put File.read("config/initializers/recaptcha.rb"), "#{shared_path}/config/initializers/recaptcha.rb"
   end
   
   after "deploy:setup", "deploy:setup_config"
 
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
     run "ln -nfs #{shared_path}/config/initializers/devise.rb #{release_path}/config/initializers/devise.rb"
+    run "ln -nfs #{shared_path}/config/initializers/recaptcha.rb #{release_path}/config/initializers/recaptcha.rb"
   end
   
   after "deploy:finalize_update", "deploy:symlink_config"
