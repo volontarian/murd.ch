@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'home_page', github: 'home-page/home_page' # path: '../../home_page/home_page'
 gem 'home_page_blog', github: 'home-page/home_page_blog' # path: '../../home_page/home_page_blog'
 
+gem 'devise', github: 'plataformatec/devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
