@@ -1,5 +1,7 @@
 en:
   general:
+    site:
+      title: Murdoch's Home Page
     blog:
       title: Murdoch's Blog
       sub_title: „Skide godt!“
