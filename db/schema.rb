@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308144103) do
+ActiveRecord::Schema.define(version: 20150318184547) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -25,6 +25,49 @@ ActiveRecord::Schema.define(version: 20150308144103) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "page_module_collections", force: :cascade do |t|
+    t.string   "slug",       limit: 255
+    t.string   "slug_stub",  limit: 255
+    t.string   "title",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "page_module_collections", ["slug"], name: "index_page_module_collections_on_slug", unique: true, using: :btree
+  add_index "page_module_collections", ["slug_stub"], name: "index_page_module_collections_on_slug_stub", unique: true, using: :btree
+
+  create_table "page_module_collections_modules", force: :cascade do |t|
+    t.integer  "collection_id", limit: 4
+    t.integer  "position",      limit: 4
+    t.integer  "module_id",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "page_module_collections_modules", ["collection_id", "position", "module_id"], name: "uniq_page_module_collections_module", unique: true, using: :btree
+
+  create_table "page_modules", force: :cascade do |t|
+    t.string   "slug",            limit: 255
+    t.string   "slug_stub",       limit: 255
+    t.string   "title",           limit: 255
+    t.string   "description",     limit: 255
+    t.string   "partial_path",    limit: 255
+    t.text     "content",         limit: 65535
+    t.text     "data",            limit: 16777215
+    t.string   "moduleable_type", limit: 255
+    t.integer  "moduleable_id",   limit: 4
+    t.datetime "published_from"
+    t.datetime "published_until"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "page_modules", ["moduleable_type", "moduleable_id"], name: "index_page_modules_on_moduleable_type_and_moduleable_id", using: :btree
+  add_index "page_modules", ["published_from"], name: "index_page_modules_on_published_from", using: :btree
+  add_index "page_modules", ["published_until"], name: "index_page_modules_on_published_until", using: :btree
+  add_index "page_modules", ["slug"], name: "index_page_modules_on_slug", unique: true, using: :btree
+  add_index "page_modules", ["slug_stub"], name: "index_page_modules_on_slug_stub", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -40,6 +83,17 @@ ActiveRecord::Schema.define(version: 20150308144103) do
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "var",        limit: 255,   null: false
+    t.text     "value",      limit: 65535
+    t.integer  "thing_id",   limit: 4
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
