@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: git://github.com/home-page/home_page_music.git
-  revision: 6f8160cca766b5978f26d87d4332dabebc724641
+  revision: 55bb5a94ca9ae1c74c99e255b0f5bc75e2bf1da1
   specs:
     home_page_music (0.0.2)
       home_page (~> 0.0.6)
