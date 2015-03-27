@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318184547) do
+ActiveRecord::Schema.define(version: 20150327160834) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 20150318184547) do
   add_index "page_modules", ["published_until"], name: "index_page_modules_on_published_until", using: :btree
   add_index "page_modules", ["slug"], name: "index_page_modules_on_slug", unique: true, using: :btree
   add_index "page_modules", ["slug_stub"], name: "index_page_modules_on_slug_stub", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "slug",       limit: 255
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
+    t.text     "data",       limit: 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
