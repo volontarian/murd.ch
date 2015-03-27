@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'home_page', github: 'home-page/home_page' # '~> 0.0.6', path: '../../home_page/home_page'
-gem 'home_page_blog', '~> 0.0.2' #github: 'home-page/home_page_blog' # '~> 0.0.1', path: '../../home_page/home_page_blog'
+gem 'home_page_blog', github: 'home-page/home_page_blog' # '~> 0.0.2', path: '../../home_page/home_page_blog'
 gem 'home_page_music', github: 'home-page/home_page_music' #'~> 0.0.2', path: '../../home_page/home_page_music'
 
 gem 'devise', github: 'plataformatec/devise'
