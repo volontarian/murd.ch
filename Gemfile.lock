@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/home-page/home_page.git
-  revision: 7da6b8bad6312f90b9a73f6d15cb9415fdb512f8
+  revision: 3cd5c352f88df584b3257703477b772a5066e0c0
   specs:
     home_page (0.0.6)
       RedCloth (~> 4.2.9)
@@ -18,10 +18,10 @@ GIT
       momentjs-rails (>= 2.9.0)
       nokogiri (~> 1.6.6.2)
       protected_attributes (~> 1.0.5)
-      rails (~> 4.2.0)
+      rails (~> 4.2.1)
       rails-settings-cached (~> 0.4.1)
       recaptcha (~> 0.3.6)
-      redcarpet (~> 3.2.2)
+      redcarpet (~> 3.2.3)
       selectize-rails (~> 0.12.0)
       simple-navigation (~> 3.14.0)
       simple-navigation-bootstrap (~> 1.0.0)
